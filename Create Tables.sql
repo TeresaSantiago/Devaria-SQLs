@@ -1,5 +1,9 @@
 BEGIN TRANSACTION
 
+/*
+	CriaÃ§Ã£o da Tebela de Cliente
+*/
+
 CREATE DATABASE DevariaCandies;
 
 --COMMIT
@@ -22,6 +26,10 @@ CREATE TABLE Cliente
 	CONSTRAINT PK_CodigoCliente PRIMARY KEY (Codigo)
 )
 
+/*
+	CriaÃ§Ã£o da Tebela de Fidelidade
+*/
+
 CREATE TABLE Fidelidade
 (
 	Codigo_Cliente int,
@@ -32,6 +40,10 @@ CREATE TABLE Fidelidade
 )
 
 
+/*
+	CriaÃ§Ã£o da Tebela de Forma de Pagamento
+*/
+
 CREATE TABLE Forma_Pagamento
 (
 	Codigo INT IDENTITY (1,1) NOT NULL,
@@ -41,6 +53,10 @@ CREATE TABLE Forma_Pagamento
 )
 
 
+/*
+	CriaÃ§Ã£o da Tebela de Marca
+*/
+
 CREATE TABLE Marca
 (
 	Codigo INT IDENTITY(1,1) NOT NULL,
@@ -49,6 +65,10 @@ CREATE TABLE Marca
 	CONSTRAINT PK_CodigoMarca PRIMARY KEY (Codigo)
 )
 
+
+/*
+	CriaÃ§Ã£o da Tebela de Produto
+*/
 
 CREATE TABLE Produto
 (
@@ -60,6 +80,10 @@ CREATE TABLE Produto
 	CONSTRAINT FK_CodigoMarca FOREIGN KEY (Codigo_Marca) REFERENCES Marca(codigo)
 )
 
+
+/*
+	CriaÃ§Ã£o da Tebela de Pedido de Venda
+*/
 
 CREATE TABLE Pedido_Venda
 (
@@ -73,6 +97,10 @@ CREATE TABLE Pedido_Venda
 	CONSTRAINT FK_CodigoFormaPagamento FOREIGN KEY (Codigo_Forma_Pagamento) REFERENCES Forma_Pagamento(Codigo),	
 	CONSTRAINT FK_CodigoCliente FOREIGN KEY (Codigo_Cliente) REFERENCES Cliente(Codigo)
 )
+
+/*
+	CriaÃ§Ã£o da Tebela de Item de Pedido de Venda
+*/
 
 CREATE TABLE Item_Pedido_Venda
 (
@@ -89,6 +117,10 @@ CREATE TABLE Item_Pedido_Venda
 )
 
 
+/*
+	CriaÃ§Ã£o da Tebela de Distribuidor
+*/
+
 CREATE TABLE Distribuidor 
 (
 	Codigo INT IDENTITY(1,1) NOT NULL,
@@ -103,6 +135,10 @@ CREATE TABLE Distribuidor
 )
 
 
+/*
+	CriaÃ§Ã£o da Tebela de Compra
+*/
+
 CREATE TABLE Pedido_Compra
 (
 	Codigo INT IDENTITY(1,1) NOT NULL,
@@ -113,6 +149,10 @@ CREATE TABLE Pedido_Compra
 	CONSTRAINT PK_CodigoPedido_Venda PRIMARY KEY (Codigo),
 	CONSTRAINT FK_CodigoDistribuidor FOREIGN KEY (Codigo_Distribuidor) REFERENCES Distribuidor(Codigo)
 )
+
+/*
+	CriaÃ§Ã£o da Tebela de Item de Pedido de Compra
+*/
 
 CREATE TABLE Item_Pedido_Compra
 (
@@ -143,21 +183,21 @@ SELECT * FROM Item_Pedido_Venda
 SELECT * FROM Item_Pedido_Compra
 
 
-INSERT INTO CLIENTE VALUES ('11111111111','Daniel Castello','castello.daniel@hotmail.com','1131111111','11911111111','02020001','Rua Exemplo, 001','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111112','Nome Sobrenome 1','email1@gmail.com','1131111112','11911111112','02020002','Rua Exemplo, 002','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111113','Nome Sobrenome 2','email2@gmail.com','1131111113','11911111113','02020003','Rua Exemplo, 003','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111114','Nome Sobrenome 3','email1@gmail.com','1131111114','11911111114','02020004','Rua Exemplo, 004','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111115','Nome Sobrenome 4','email2@gmail.com','1131111115','11911111115','02020005','Rua Exemplo, 005','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111116','Nome Sobrenome 5','email1@gmail.com','1131111116','11911111116','02020006','Rua Exemplo, 006','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111117','Nome Sobrenome 6','email2@gmail.com','1131111117','11911111117','02020007','Rua Exemplo, 007','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111118','Nome Sobrenome 7','email1@gmail.com','1131111118','11911111118','02020008','Rua Exemplo, 008','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111119','Nome Sobrenome 8','email2@gmail.com','1131111119','11911111119','02020009','Rua Exemplo, 009','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111120','Nome Sobrenome 9','email1@gmail.com','1131111120','11911111120','02020010','Rua Exemplo, 010','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111121','Nome Sobrenome 10','email2@gmail.com','1131111121','11911111121','02020011','Rua Exemplo, 011','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111122','Nome Sobrenome 11','email1@gmail.com','1131111122','11911111122','02020012','Rua Exemplo, 012','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111123','Nome Sobrenome 12','email2@gmail.com','1131111123','11911111123','02020013','Rua Exemplo, 013','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111124','Nome Sobrenome 13','email1@gmail.com','1131111124','11911111124','02020014','Rua Exemplo, 014','SP','São Paulo')
-INSERT INTO CLIENTE VALUES ('11111111125','Nome Sobrenome 14','email2@gmail.com','1131111125','11911111125','02020015','Rua Exemplo, 015','SP','São Paulo')
+INSERT INTO CLIENTE VALUES ('11111111111','Daniel Castello','castello.daniel@hotmail.com','1131111111','11911111111','02020001','Rua Exemplo, 001','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111112','Nome Sobrenome 1','email1@gmail.com','1131111112','11911111112','02020002','Rua Exemplo, 002','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111113','Nome Sobrenome 2','email2@gmail.com','1131111113','11911111113','02020003','Rua Exemplo, 003','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111114','Nome Sobrenome 3','email1@gmail.com','1131111114','11911111114','02020004','Rua Exemplo, 004','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111115','Nome Sobrenome 4','email2@gmail.com','1131111115','11911111115','02020005','Rua Exemplo, 005','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111116','Nome Sobrenome 5','email1@gmail.com','1131111116','11911111116','02020006','Rua Exemplo, 006','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111117','Nome Sobrenome 6','email2@gmail.com','1131111117','11911111117','02020007','Rua Exemplo, 007','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111118','Nome Sobrenome 7','email1@gmail.com','1131111118','11911111118','02020008','Rua Exemplo, 008','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111119','Nome Sobrenome 8','email2@gmail.com','1131111119','11911111119','02020009','Rua Exemplo, 009','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111120','Nome Sobrenome 9','email1@gmail.com','1131111120','11911111120','02020010','Rua Exemplo, 010','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111121','Nome Sobrenome 10','email2@gmail.com','1131111121','11911111121','02020011','Rua Exemplo, 011','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111122','Nome Sobrenome 11','email1@gmail.com','1131111122','11911111122','02020012','Rua Exemplo, 012','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111123','Nome Sobrenome 12','email2@gmail.com','1131111123','11911111123','02020013','Rua Exemplo, 013','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111124','Nome Sobrenome 13','email1@gmail.com','1131111124','11911111124','02020014','Rua Exemplo, 014','SP','Sï¿½o Paulo')
+INSERT INTO CLIENTE VALUES ('11111111125','Nome Sobrenome 14','email2@gmail.com','1131111125','11911111125','02020015','Rua Exemplo, 015','SP','Sï¿½o Paulo')
 INSERT INTO CLIENTE VALUES ('11111111126','Nome Sobrenome 15','email1@gmail.com','1131111126','11911111126','02020016','Rua Exemplo, 016','MG','Belo Horizonte')
 INSERT INTO CLIENTE VALUES ('11111111127','Nome Sobrenome 16','email2@gmail.com','1131111127','11911111127','02020017','Rua Exemplo, 017','MG','Belo Horizonte')
 INSERT INTO CLIENTE VALUES ('11111111128','Nome Sobrenome 17','email1@gmail.com','1131111128','11911111128','02020018','Rua Exemplo, 018','MG','Belo Horizonte')
@@ -183,11 +223,11 @@ INSERT INTO FIDELIDADE VALUES ('5','2021-02-03','150')
 INSERT INTO FIDELIDADE VALUES ('7','2021-02-04','90')
 INSERT INTO FIDELIDADE VALUES ('8','2021-02-05','400')
 
-INSERT INTO FORMA_PAGAMENTO VALUES ('Master Card','Cartão de débito')
-INSERT INTO FORMA_PAGAMENTO VALUES ('Master Card','Cartão de crédito')
+INSERT INTO FORMA_PAGAMENTO VALUES ('Master Card','Cartï¿½o de dï¿½bito')
+INSERT INTO FORMA_PAGAMENTO VALUES ('Master Card','Cartï¿½o de crï¿½dito')
 INSERT INTO FORMA_PAGAMENTO VALUES ('Dinheiro','Dinheiro')
-INSERT INTO FORMA_PAGAMENTO VALUES ('Alelo','Ticket Refeição')
-INSERT INTO FORMA_PAGAMENTO VALUES ('Sodexo','Ticket Refeição')
+INSERT INTO FORMA_PAGAMENTO VALUES ('Alelo','Ticket Refeiï¿½ï¿½o')
+INSERT INTO FORMA_PAGAMENTO VALUES ('Sodexo','Ticket Refeiï¿½ï¿½o')
 
 INSERT INTO MARCA VALUES ('Nestle','Nestle SA')
 INSERT INTO MARCA VALUES ('Lacta','Mondelez')
@@ -232,16 +272,16 @@ INSERT INTO Item_Pedido_Venda VALUES (5.25,0.25,5,1,4,8)
 INSERT INTO Item_Pedido_Venda VALUES (110,0.1,1,100,7,9)
 INSERT INTO Item_Pedido_Venda VALUES (10.5,0.5,10,2,1,10)
 
-INSERT INTO DISTRIBUIDOR VALUES ('11111111111111','Distribuidor  1','Distribuidor LTDA  1','02020001','Rua Exemplo, 001','SP','São Paulo')
-INSERT INTO DISTRIBUIDOR VALUES ('11111111111112','Distribuidor  2','Distribuidor LTDA  2','02020002','Rua Exemplo, 002','SP','São Paulo')
-INSERT INTO DISTRIBUIDOR VALUES ('11111111111113','Distribuidor  3','Distribuidor LTDA  3','02020003','Rua Exemplo, 003','SP','São Paulo')
-INSERT INTO DISTRIBUIDOR VALUES ('11111111111114','Distribuidor  4','Distribuidor LTDA  4','02020004','Rua Exemplo, 004','SP','São Paulo')
-INSERT INTO DISTRIBUIDOR VALUES ('11111111111115','Distribuidor  5','Distribuidor LTDA  5','02020005','Rua Exemplo, 005','SP','São Paulo')
-INSERT INTO DISTRIBUIDOR VALUES ('11111111111116','Distribuidor  6','Distribuidor LTDA  6','02020006','Rua Exemplo, 006','SP','São Paulo')
-INSERT INTO DISTRIBUIDOR VALUES ('11111111111117','Distribuidor  7','Distribuidor LTDA  7','02020007','Rua Exemplo, 007','SP','São Paulo')
-INSERT INTO DISTRIBUIDOR VALUES ('11111111111118','Distribuidor  8','Distribuidor LTDA  8','02020008','Rua Exemplo, 008','SP','São Paulo')
-INSERT INTO DISTRIBUIDOR VALUES ('11111111111119','Distribuidor  9','Distribuidor LTDA  9','02020009','Rua Exemplo, 009','SP','São Paulo')
-INSERT INTO DISTRIBUIDOR VALUES ('11111111111120','Distribuidor  10','Distribuidor LTDA  10','02020010','Rua Exemplo, 010','SP','São Paulo')
+INSERT INTO DISTRIBUIDOR VALUES ('11111111111111','Distribuidor  1','Distribuidor LTDA  1','02020001','Rua Exemplo, 001','SP','Sï¿½o Paulo')
+INSERT INTO DISTRIBUIDOR VALUES ('11111111111112','Distribuidor  2','Distribuidor LTDA  2','02020002','Rua Exemplo, 002','SP','Sï¿½o Paulo')
+INSERT INTO DISTRIBUIDOR VALUES ('11111111111113','Distribuidor  3','Distribuidor LTDA  3','02020003','Rua Exemplo, 003','SP','Sï¿½o Paulo')
+INSERT INTO DISTRIBUIDOR VALUES ('11111111111114','Distribuidor  4','Distribuidor LTDA  4','02020004','Rua Exemplo, 004','SP','Sï¿½o Paulo')
+INSERT INTO DISTRIBUIDOR VALUES ('11111111111115','Distribuidor  5','Distribuidor LTDA  5','02020005','Rua Exemplo, 005','SP','Sï¿½o Paulo')
+INSERT INTO DISTRIBUIDOR VALUES ('11111111111116','Distribuidor  6','Distribuidor LTDA  6','02020006','Rua Exemplo, 006','SP','Sï¿½o Paulo')
+INSERT INTO DISTRIBUIDOR VALUES ('11111111111117','Distribuidor  7','Distribuidor LTDA  7','02020007','Rua Exemplo, 007','SP','Sï¿½o Paulo')
+INSERT INTO DISTRIBUIDOR VALUES ('11111111111118','Distribuidor  8','Distribuidor LTDA  8','02020008','Rua Exemplo, 008','SP','Sï¿½o Paulo')
+INSERT INTO DISTRIBUIDOR VALUES ('11111111111119','Distribuidor  9','Distribuidor LTDA  9','02020009','Rua Exemplo, 009','SP','Sï¿½o Paulo')
+INSERT INTO DISTRIBUIDOR VALUES ('11111111111120','Distribuidor  10','Distribuidor LTDA  10','02020010','Rua Exemplo, 010','SP','Sï¿½o Paulo')
 
 INSERT INTO Pedido_Compra VALUES (2021-03-01,1000,1,1)
 INSERT INTO Pedido_Compra VALUES (2021-03-02,100,1,1)
